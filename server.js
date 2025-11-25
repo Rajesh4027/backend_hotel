@@ -6,7 +6,10 @@ const cors = require('cors');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ['https://maduragrandeur.netlify.app', 'http://localhost:5500', 'http://127.0.0.1:5500'],
+    credentials: true
+}));
 
 const razorpay = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
